@@ -78,12 +78,12 @@ void MainWindow::createActions()
     openAct = new QAction(QIcon(":/images/open.png"), tr("&Open"), this);
     openAct->setShortcuts(QKeySequence::Open);
     openAct->setStatusTip(tr("Open a existing file"));
-    connect(openAct, SIGNAL(triggered()), this, SLOT(openFile()));
+    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
 
     saveAct = new QAction(QIcon(":/images/save.png"), tr("&Save"), this);
     saveAct->setShortcuts(QKeySequence::Save);
     saveAct->setStatusTip(tr("Save current file."));
-    connect(openAct, SIGNAL(triggered()), this, SLOT(save()));
+    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
     saveAsAct = new QAction(tr("Save &As"), this);
     saveAsAct->setShortcuts(QKeySequence::SaveAs);
