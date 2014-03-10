@@ -33,6 +33,7 @@ private:
     void createMenus();
     void createToolBars();
     void createStatusBar();
+    void createDockWindows();
     void readSettings();
     void writeSettings();
     bool maybeSave();
