@@ -6,7 +6,7 @@
 QT_BEGIN_NAMESPACE
 class QAction;
 class QMenu;
-class QPlainTextEdit;
+class CodeEditor;
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -40,7 +40,7 @@ private:
     bool saveFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);
     QString strippedName(const QString &fullFileName);
-    QPlainTextEdit *textEdit;
+    CodeEditor *textEdit;
     QString curFile;
 
     QMenu *fileMenu;

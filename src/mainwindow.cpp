@@ -1,10 +1,11 @@
 #include <QtWidgets>
 #include "mainwindow.h"
+#include "codeeditor.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    textEdit = new QPlainTextEdit();
+    textEdit = new CodeEditor();
     setCentralWidget(textEdit);
 
     createActions();

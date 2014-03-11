@@ -1,5 +1,10 @@
-SET(TE_SOURCES main.cpp mainwindow.cpp)
-SET(TE_HEADERS mainwindow.h)
+SET(TE_SOURCES main.cpp 
+               mainwindow.cpp
+               codeeditor.cpp)
+
+SET(TE_HEADERS mainwindow.h
+               codeeditor.h)
+
 SET(TE_RESOURCES ${CMAKE_SOURCE_DIR}/icons/icons.qrc)
 
 SET(CMAKE_AUTOMOC ON)
