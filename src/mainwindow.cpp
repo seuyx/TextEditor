@@ -1,4 +1,7 @@
 #include <QtWidgets>
+#include <QDockWidget>
+#include <QTreeView>
+#include <QFileSystemModel>
 #include "mainwindow.h"
 #include "codeeditor.h"
 
@@ -12,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     createMenus();
     createToolBars();
     createStatusBar();
+    createDockWindows();
 
     readSettings();
 
@@ -67,6 +71,19 @@ void MainWindow::createToolBars()
 void MainWindow::createStatusBar()
 {
     statusBar()->showMessage(tr("Ready"));
+}
+
+void MainWindow::createDockWindows()
+{
+    QDockWidget* dock = new QDockWidget(tr("File hierarchy"), this);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    QFileSystemModel* model = new QFileSystemModel;
+    model->setRootPath(QDir::currentPath());
+    QTreeView* tree = new QTreeView(dock);
+    tree->setModel(model);
+    tree->setRootIndex(model->index(QDir::currentPath()));
+    dock->setWidget(tree);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
 }
 
 void MainWindow::createActions()
@@ -273,10 +290,8 @@ bool MainWindow::save()
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, tr("About Application"),
-                       tr("The <b>Application</b> example demonstrates how to "
-                          "write modern GUI applications using Qt, with a menu bar, "
-                          "toolbars, and a status bar."));
+    QMessageBox::about(this, tr("About TextEditor"),
+                       tr("This is a super text editor."));
 }
 
 void MainWindow::documentWasModified()
